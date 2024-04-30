@@ -11,6 +11,22 @@
         <title>Music Records</title>
     </head>
 <body>
+
+    <h1>DR Rest/API</h1>
+    <div id="app">
+        <h2>Get All MusicRecords (GET)</h2>
+        <button id="getAllButton" v-on:click="getAllMusicRecords" class="btn btn-primary">Get all Music Records</button>
+        <br />
+
+        <ul id="MusicRecordslist" v-if="MusicRecords.length">
+            <li v-for="MusicRecord in MusicRecords">
+                Title: {{MusicRecord.title}}
+                Artist: {{MusicRecord.artist}}
+                Duration In Seconds: {{MusicRecord.durationInSeconds}} 
+                Publication Year: {{MusicRecord.publicationYear}}
+            </li>
+        </ul>
+        <div v-else>No MusicRecords</div>
     
 
 
