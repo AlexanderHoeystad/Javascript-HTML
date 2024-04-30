@@ -1,4 +1,5 @@
 const baseurl = "https://drapialexogphilip.azurewebsites.net/api/MusicRecords"
+
 Vue.createApp({
     data() {
         return {
@@ -9,7 +10,7 @@ Vue.createApp({
             // AddMessage: "",
             // UpdateMessage: "",
             // DeleteMessage: "",   
-            // singlePokemon: null,
+            singleMusicRecord: null,
             // pokedexIDToGetBy : null,
         }
     },
@@ -23,8 +24,18 @@ Vue.createApp({
             try {
                 const response = await axios.get(url)
                 this.MusicRecords = await response.data
+
             } catch (ex) {
                 alert(ex.message) // https://www.w3schools.com/js/js_popup.asp
+            }
+        },
+        async GetMusicRecordByTitle(title) {
+            const url = baseurl + "?title=" + title
+            try {
+                const response = await axios.get(url)
+                this.MusicRecords = response.data
+            } catch (ex) {
+                alert(ex.message)
             }
         },
 
