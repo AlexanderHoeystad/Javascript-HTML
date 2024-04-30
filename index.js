@@ -38,6 +38,11 @@ Vue.createApp({
                 alert(ex.message)
             }
         },
+        
+        async GetMusicRecordByArtist(artist) {
+            const url = baseurl + "?artist=" + artist
+            this.helperGetAndShow(url)
+        },
 
     },
 
