@@ -21,7 +21,15 @@
         <input type="text" v-model="title" placeholder="Enter MusicRecord Title" id="inputSearchByTitle">
         <button id="getByTitleButton" v-on:click="GetMusicRecordByTitle(title)" class="btn btn-primary">Get MusicRecord
             By Title</button>
-        <br />
+
+        <h3> Create MusicRecord</h3>
+        <input type="text" v-model="addMusicRecord.title" placeholder="Title" id="addMusicRecord">
+        <input v-model="addMusicRecord.artist" placeholder="Artist" type="text">
+        <input v-model.number="addMusicRecord.durationInSeconds" placeholder="Duration In Seconds" type="number">
+        <input v-model.number="addMusicRecord.publicationYear" placeholder="Publication Year" type="number">
+        <button v-on:click="AddMusicRecord()" class="btn btn-success">Add MusicRecord</button>
+        <div>{{addMessage}}</div>
+
 
 
 

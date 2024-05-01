@@ -5,9 +5,9 @@ Vue.createApp({
         return {
             MusicRecords: [],
             // UpdatePokemon: {pokedexID: 0, name: "", type: ""},
-            // AddPokemon: {name: "", type: ""},
+                addMusicRecord: {title: "", artist: "", durationInSeconds: 0, publicationYear: 0},
             // DeletePokedexID: {pokedexID: 0},
-            // AddMessage: "",
+             AddMessage: "",
             // UpdateMessage: "",
             // DeleteMessage: "",   
             singleMusicRecord: null,
@@ -43,6 +43,16 @@ Vue.createApp({
             const url = baseurl + "?artist=" + artist
             this.helperGetAndShow(url)
         },
+
+        async AddMusicRecord() {
+            try {
+                response = await axios.post(baseurl, this.addMusicRecord)
+                this.addMessage = "response " + response.status + " " + response.statusText;
+                this.getAllMusicRecords()
+            } catch (ex) {
+                alert(ex.message)
+            }
+        }
 
     },
 
